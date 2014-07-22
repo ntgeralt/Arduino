@@ -1,0 +1,79 @@
+#include <Servo.h> 
+   
+Servo servo1; 
+Servo servo2; 
+int x = 90;
+int y = 90;
+void setup()   
+{  
+  Serial.begin(38400); 
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+
+}   
+  
+void loop()   
+{  
+   switch(Serial.read())
+{
+   case 'a':   
+   digitalWrite(2, HIGH);
+   break;
+ case 'b':   
+   digitalWrite(3, HIGH);
+   break;
+ case 'c':   
+   digitalWrite(4, HIGH);
+   break;
+ case 'z':   
+   digitalWrite(5, HIGH);
+   break;
+ case 'e':   
+   digitalWrite(2, LOW);
+   break;
+ case 'f':   
+   digitalWrite(3, LOW);
+   break;
+ case 'g':   
+   digitalWrite(4, LOW);
+   break;
+ case 'h':   
+   digitalWrite(5, LOW);
+   break;
+case 'i':   
+servo1.attach(9);  
+servo1.write(x);  
+x++; 
+break;
+
+case 'j':   
+servo1.attach(9);  
+servo1.write(x); 
+x--; 
+break;
+
+
+case 'k':   
+servo2.attach(10);  
+servo2.write(y); 
+y++;
+break;
+
+case 'l':   
+servo2.attach(10);  
+servo2.write(y); 
+y--;
+break;
+
+case 'm':   
+servo1.detach();
+break;
+
+case 'n':   
+servo2.detach();
+break;
+
+}
+}
