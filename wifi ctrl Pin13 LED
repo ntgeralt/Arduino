@@ -1,0 +1,11 @@
+void setup() {                
+  pinMode(13, OUTPUT);
+  Serial.begin(115200);  
+}
+void loop() {  
+     while(Serial.available() )
+       if(Serial.read() == '1')    
+        digitalWrite(13, HIGH); 
+       if(Serial.read() == '2')    
+        digitalWrite(13, LOW); 
+}
