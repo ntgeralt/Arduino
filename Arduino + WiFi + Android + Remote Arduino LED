@@ -4,8 +4,8 @@ void setup() {
 }
 void loop() {  
      while(Serial.available() )
-       if(Serial.read() == '1')    
+       if(Serial.read() == 'a')    
         digitalWrite(13, HIGH); 
-       if(Serial.read() == '2')    
+       if(Serial.read() == 'b')    
         digitalWrite(13, LOW); 
 }
